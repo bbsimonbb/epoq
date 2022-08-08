@@ -9,12 +9,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@latest
+      - uses: actions/setup-node@latest
         with:
           node-version: 16
       - run: yarn
       - run: yarn build
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@latest
         with:
           token: ${{ secrets.NPM_TOKEN }}
