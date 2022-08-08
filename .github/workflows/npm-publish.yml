@@ -17,4 +17,5 @@ jobs:
       - run: yarn build
       - uses: JS-DevTools/npm-publish@latest
         with:
+          node-version: 16
           token: ${{ secrets.NPM_TOKEN }}
