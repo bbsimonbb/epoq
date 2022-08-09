@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "test-usa": "TZ=PST jest"
+
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",

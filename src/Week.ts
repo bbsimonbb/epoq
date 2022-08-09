@@ -1,6 +1,7 @@
   /* 
   Weeks in the year are indexed from 1, like days in a month, because everyone else does it this way.
-  Weeks since the epoch are indexed from 0, like months. 1970 has 53 weeks, (0 - 52 in weeksSinceEpoch)
+  Weeks since the epoch are indexed from 0, like months. 1970 has 53 weeks, (0 - 52 in weeksSinceEpoch),
+  so week 1 of 1971 is weekSinceEpoch 53.
   */
 interface IOptions{
   locale: string
@@ -57,7 +58,7 @@ export class Week {
 
   getWeekOfYear(d: Date): number {
     // Copy date so don't modify original
-    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()))
+    d = new Date(d.getTime())
     // Set to nearest Thursday: current date + 4 - current day number
     // Make Sunday's day number 7
     d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7))
