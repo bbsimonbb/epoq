@@ -22,29 +22,32 @@ export class DateWithoutTime {
   toISOString(): string {
     return this.utcMidnightDateObj.toISOString()
   }
-  getUTCDate(): number {
+  getDate(): number {
     return this.utcMidnightDateObj.getUTCDate()
   }
-  getUTCDay(): number {
+  getDay(): number {
     return this.utcMidnightDateObj.getUTCDay()
   }
-  getUTCFullYear(): number {
+  getFullYear(): number {
     return this.utcMidnightDateObj.getUTCFullYear()
   }
-  getUTCMonth(): number {
+  getMonth(): number {
     return this.utcMidnightDateObj.getUTCMonth()
   }
   getDaysSinceEpoch(): number {
     return this.utcMidnightDateObj.getTime() / 86_400_000
   }
-  yetUTCDate(date: number): number {
+  setDaysSinceEpoch(days:number){
+    this.utcMidnightDateObj = new Date(days * 86_400_000)
+  }
+  setDate(date: number): number {
     return this.utcMidnightDateObj.setUTCDate(date)
   }
-  setUTCFullYear(year: number): number {
+  setFullYear(year: number): number {
     return this.utcMidnightDateObj.setUTCFullYear(year)
   }
 
-  setUTCMonth(arg: number): number {
+  setMonth(arg: number): number {
     return this.utcMidnightDateObj.setUTCMonth(arg)
   }
   addDays(days: number): void {

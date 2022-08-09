@@ -1,6 +1,8 @@
 import 'jest';
 import {Week} from './Week'
 
+// https://www.epochconverter.com/weeks/1989#earlyyears
+
 describe('Week', ()=>{
     // Date constructor
     it('Epoch should be in week zero', ()=>{
@@ -24,7 +26,7 @@ describe('Week', ()=>{
     })
     // Week in year constructor
     it("The first week of 1971 is week 53",()=>{
-        const week = new Week(1,1971);
+        const week = new Week(1971,1);
         expect( week.weekSinceEpoch ).toBe(53);
     })
     it("For years starting on a Thursday, week 1 contains the 1st of January",()=>{
@@ -36,5 +38,11 @@ describe('Week', ()=>{
         const week = new Week('2016-01-01');
         // monday of week 1 is in the year, the 1st is in week 53 or 54 of the previous year
         expect(week.monday.getFullYear()).toBe(week.year);
+    })
+    it("Week 4 of 1989 goes from the 23 to 29 January",()=>{
+        const week = new Week(1989,4)
+        expect(week.monday.getDay()).toBe(1) // monday
+        expect(week.monday.getDate()).toBe(23)
+        expect(week.sunday.getDate()).toBe(29)
     })
 })
