@@ -38,6 +38,8 @@ c = new Week(new Date(1970,0,1))
 d = new Week(2022,52)
 ```
 Then use get at its parts
+
+```
 weekSinceEpoch: number
 weekOfYear: number
 year: number
