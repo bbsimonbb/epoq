@@ -32,12 +32,16 @@ describe('Week', ()=>{
     it("For years starting on a Thursday, week 1 contains the 1st of January",()=>{
         const week = new Week('2015-01-01');
         expect(week.monday.getFullYear()).toBe(week.year - 1);
+        expect(week.monday.getDate()).toBe(29)
+        expect(week.weekSinceEpoch).toBe(2348);
     })
     
     it("For years starting on a Friday, week 1 doesn't contain the 1st of January",()=>{
-        const week = new Week('2016-01-01');
+        const week = new Week('2016-01-04');
         // monday of week 1 is in the year, the 1st is in week 53 or 54 of the previous year
         expect(week.monday.getFullYear()).toBe(week.year);
+        expect(week.weekSinceEpoch).toBe(2401);
+        expect(week.monday.getDate()).toBe(4)
     })
     it("Week 4 of 1989 goes from the 23 to 29 January",()=>{
         const week = new Week(1989,4)
