@@ -14,6 +14,11 @@ describe('Week', ()=>{
         const week = new Week('1969-12-29');
         expect(week.weekSinceEpoch).toBe(0)
     })
+    // Year week constructor
+    it("Week 36 of 2022",()=>{
+        const week = new Week(2022, 36);
+        expect(week.weekSinceEpoch).toBe(2749)
+    })
     /* 
     Weeks in the year are indexed from 1, like days in a month, because everyone else does it this way.
     Weeks since the epoch are indexed from 0, like months. 1970 has 53 weeks, (0 - 52 in weeksSinceEpoch)
