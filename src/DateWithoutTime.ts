@@ -2,7 +2,7 @@ export class DateWithoutTime {
   utcMidnightDateObj: Date
   constructor(dateOrYearOrDaysSinceEpoch?: any, month?: number, day?: number) {
     if (!isNaN(dateOrYearOrDaysSinceEpoch)) {
-      if (month) this.utcMidnightDateObj = new Date(Date.UTC(dateOrYearOrDaysSinceEpoch, month, day))
+      if ( Number.isInteger(month)) this.utcMidnightDateObj = new Date(Date.UTC(dateOrYearOrDaysSinceEpoch, month!, day))
       else this.utcMidnightDateObj = new Date(dateOrYearOrDaysSinceEpoch * 86_400_000)
     } else {
       // if no date supplied, use Now.
